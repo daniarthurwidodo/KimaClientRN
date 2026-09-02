@@ -8,7 +8,8 @@ src/
     home/
       data/         ← API clients, queries, DTOs (I/O only)
       business/     ← validators, payload builders, orchestration (pure)
-      presentation/ ← screens, components, JSX
+      components/   ← page-scoped UI pieces (Header, Banner, FeatureGrid, ...)
+      presentation/ ← screens — compose components + wire data
   shared/
     utils/          ← pure helpers
     components/     ← reusable UI primitives
@@ -20,7 +21,8 @@ src/
 
 - **data/** — API clients, queries, repositories, DTOs. I/O only. No business rules.
 - **business/** — validators, payload builders, calculations, orchestration. Pure. No I/O, no JSX.
-- **presentation/** — screens, page components, JSX. Reads from business layer.
+- **components/** — page-scoped presentational components. Own their styles + local icon deps. Props-in, JSX-out. No fetching.
+- **presentation/** — screen entrypoints. Compose components, feed them data from business/data. Layout + scroll containers only.
 
 ## Shared
 
@@ -31,5 +33,7 @@ src/
 ## Rules
 
 - Presentation never talks to data directly — always through business.
-- A page owns its data/business/presentation; only promote to `shared/` when a 2nd page needs it.
+- Page-scoped components live in `pages/<page>/components/`. Promote to `shared/components/` only when a 2nd page needs it.
+- Components stay presentational: props in, JSX out. No data fetching, no business rules.
+- A page owns its data/business/components/presentation; only promote to `shared/` when a 2nd page needs it.
 - No cross-page imports except via `shared/`.
