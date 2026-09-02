@@ -4,9 +4,23 @@ See [design.md](./design.md) — FluentUI + palette tokens. No hex literals in c
 
 # Architecture
 
-Modular monolith, organized per page. Each page/feature is a self-contained module.
+Modular monolith. Each page is a self-contained module under `src/pages/<page>/`.
 
-## Layers (per module)
+```
+src/
+  pages/
+    home/
+      data/         ← API clients, queries, DTOs (I/O only)
+      business/     ← validators, payload builders, orchestration (pure)
+      presentation/ ← screens, components, JSX
+  shared/
+    utils/          ← pure helpers
+    components/     ← reusable UI primitives
+    services/       ← singletons (logger, http, auth, storage)
+    theme/          ← palette + tokens
+```
+
+## Layers (per page module)
 
 - **data/** — API clients, queries, repositories, DTOs. I/O only. No business rules.
 - **business/** — validators, payload builders, calculations, orchestration. Pure. No I/O, no JSX.
@@ -21,5 +35,5 @@ Modular monolith, organized per page. Each page/feature is a self-contained modu
 ## Rules
 
 - Presentation never talks to data directly — always through business.
-- A module owns its data/business/presentation; only promote to `shared/` when a 2nd module needs it.
-- No cross-module imports except via `shared/`.
+- A page owns its data/business/presentation; only promote to `shared/` when a 2nd page needs it.
+- No cross-page imports except via `shared/`.

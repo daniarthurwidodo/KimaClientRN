@@ -1,16 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import React from 'react';
+import { StatusBar, useColorScheme } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { BottomTabs } from './src/shared/components/BottomTabs';
+import { StubScreen } from './src/shared/components/StubScreen';
+import { HomeScreen } from './src/pages/home/presentation/HomeScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -18,28 +11,17 @@ function App() {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <BottomTabs
+        screens={{
+          home: <HomeScreen />,
+          community: <StubScreen label="Community" />,
+          ministry: <StubScreen label="Ministry" />,
+          giving: <StubScreen label="Giving" />,
+          resources: <StubScreen label="Resources" />,
+        }}
+      />
     </SafeAreaProvider>
   );
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

@@ -1,0 +1,23 @@
+{
+  "user": { "name": "Cornelius", "unreadCount": 2 },
+  "banner": {
+    "title": "ON-SITE SERVICE UPDATE",
+    "subtitle": "Mulai Minggu, 17 Desember 2023",
+    "body": "Batas waktu check-in dengan MyJPCC App: 10 menit sebelum ibadah dimulai."
+  },
+  "features": [
+    { "id": "newsfeed", "label": "Newsfeed", "icon": "📰" },
+    { "id": "event", "label": "Event", "icon": "📅" },
+    { "id": "classes", "label": "Classes", "icon": "💡" },
+    { "id": "parenting", "label": "Parenting", "icon": "🏠" },
+    { "id": "prayer", "label": "Prayer Request", "icon": "🕊️" },
+    { "id": "praise", "label": "Praise Report", "icon": "😄" },
+    { "id": "support", "label": "Support", "icon": "💬" },
+    { "id": "more", "label": "More", "icon": "🔲" }
+  ],
+  "newReleases": [
+    { "id": "1", "title": "God's Good", "color": "#7a3b6a" },
+    { "id": "2", "title": "The Abundant Life", "color": "#1e2a4a" },
+    { "id": "3", "title": "Life Series", "color": "#7fb0d3" }
+  ]
+}
