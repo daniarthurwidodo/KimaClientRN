@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: palette.bannerOrange,
     overflow: 'hidden',
+    height: 180,
   },
   speakerChip: {
     position: 'absolute',

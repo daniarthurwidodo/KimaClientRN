@@ -21,7 +21,7 @@ export function SearchBar({ placeholder = 'Find events, classes & other feature'
 const styles = StyleSheet.create({
   bar: {
     marginHorizontal: 16,
-    marginTop: 14,
+    marginTop: -20,
     height: 44,
     borderRadius: 22,
     backgroundColor: palette.searchBg,
