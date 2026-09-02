@@ -20,10 +20,7 @@ export function Banner({ title, subtitle, body }: Props) {
 
 const styles = StyleSheet.create({
   banner: {
-    marginHorizontal: 16,
-    marginTop: -8,
     padding: 16,
-    borderRadius: 14,
     backgroundColor: palette.bannerOrange,
     overflow: 'hidden',
   },
