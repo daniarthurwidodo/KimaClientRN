@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabs } from './src/shared/components/BottomTabs';
 import { StubScreen } from './src/shared/components/StubScreen';
 import { HomeStack } from './src/pages/home/presentation/HomeStack';
+import { VideosStack } from './src/pages/videos/presentation/VideosStack';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,7 +20,7 @@ function App() {
             community: <StubScreen label="Community" />,
             ministry: <StubScreen label="Ministry" />,
             giving: <StubScreen label="Giving" />,
-            resources: <StubScreen label="Resources" />,
+            resources: <VideosStack />,
           }}
         />
       </NavigationContainer>
