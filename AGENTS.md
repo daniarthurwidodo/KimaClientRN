@@ -41,3 +41,5 @@ src/
 - Components stay presentational: props in, JSX out. No data fetching, no business rules.
 - A page owns its data/business/components/presentation; only promote to `shared/` when a 2nd page needs it.
 - No cross-page imports except via `shared/`.
+- **Use hooks for all stateful / side-effect logic.** Data fetching, subscriptions, timers, form state, derived state — encapsulate in a custom `useXxx` hook under `business/`. Screens read from hooks; components stay dumb (props in, JSX out). No `useEffect` / `useState` / `fetch` inlined in screens or components.
+- Function components + hooks only. No class components. Follow Rules of Hooks (top-level call, never inside conditions/loops).

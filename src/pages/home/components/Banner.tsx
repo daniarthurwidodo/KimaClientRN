@@ -1,30 +1,59 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Pressable, ActivityIndicator } from 'react-native';
 import { Speaker224Filled } from '@fluentui/react-native-icons';
 import { palette, font } from '../../../shared/theme/palette';
+import type { RenunganDay } from '../../../shared/services/renunganApi';
 
-type Props = { title: string; subtitle: string; body: string };
+type Props = {
+  day: RenunganDay | null;
+  loading?: boolean;
+  onPress?: () => void;
+};
 
-export function Banner({ title, subtitle, body }: Props) {
+const PLACEHOLDER_TEXT = 'Belum ada renungan hari ini.';
+
+export function Banner({ day, loading, onPress }: Props) {
+  const bg = day?.imageUrl ? { uri: day.imageUrl } : undefined;
+
   return (
-    <View style={styles.banner}>
-      <View style={styles.speakerChip}>
-        <Speaker224Filled color={palette.white} width={14} height={14} />
-      </View>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.subtitle}>{subtitle}</Text>
-      <Text style={styles.body}>{body}</Text>
-    </View>
+    <Pressable onPress={onPress} disabled={!onPress} accessibilityRole="button">
+      <ImageBackground source={bg} style={styles.banner} imageStyle={styles.image}>
+        <View style={styles.tint} />
+        <View style={styles.speakerChip}>
+          <Speaker224Filled color={palette.white} width={14} height={14} />
+        </View>
+
+        {loading && <ActivityIndicator color={palette.white} style={styles.loader} />}
+
+        {!loading && day?.hasContent && day.scripture && (
+          <View style={styles.scriptureBox}>
+            <Text style={styles.scriptureRef}>{day.scripture.ref}</Text>
+            <Text style={styles.scriptureText} numberOfLines={4}>
+              {day.scripture.text}
+            </Text>
+          </View>
+        )}
+
+        {!loading && !day?.hasContent && (
+          <View style={styles.scriptureBox}>
+            <Text style={styles.placeholder}>{PLACEHOLDER_TEXT}</Text>
+          </View>
+        )}
+      </ImageBackground>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   banner: {
+    height: 180,
+    justifyContent: 'flex-end',
     padding: 16,
     backgroundColor: palette.bannerOrange,
     overflow: 'hidden',
-    height: 180,
   },
+  image: { resizeMode: 'cover' },
+  tint: { ...StyleSheet.absoluteFill, backgroundColor: 'rgba(0,0,0,0.25)' },
   speakerChip: {
     position: 'absolute',
     top: 10,
@@ -36,24 +65,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  title: {
-    color: palette.white,
-    fontFamily: font.familyBold,
-    fontSize: 22,
-    marginTop: 24,
-    lineHeight: 26,
+  loader: { alignSelf: 'center' },
+  scriptureBox: {
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    padding: 12,
+    borderRadius: 10,
   },
-  subtitle: {
-    color: palette.white,
+  scriptureRef: {
+    color: palette.saffron,
     fontFamily: font.familyBold,
-    fontSize: 14,
-    marginTop: 10,
+    fontSize: 12,
+    marginBottom: 4,
+    letterSpacing: 0.5,
   },
-  body: {
+  scriptureText: {
     color: palette.white,
     fontFamily: font.family,
-    fontSize: 12,
-    marginTop: 6,
-    lineHeight: 16,
+    fontSize: 13,
+    lineHeight: 18,
+    fontStyle: 'italic',
+  },
+  placeholder: {
+    color: palette.white,
+    fontFamily: font.family,
+    fontSize: 13,
   },
 });
