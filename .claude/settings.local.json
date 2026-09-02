@@ -6,7 +6,8 @@
       "Bash(rm -rf /Users/dani.widodo/Library/Android/sdk/ndk/27.1.12297006)",
       "Read(//Users/dani.widodo/Library/Android/sdk/cmdline-tools/**)",
       "Bash(yes)",
-      "Bash(/Users/dani.widodo/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager --install \"ndk;27.1.12297006\")"
+      "Bash(/Users/dani.widodo/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager --install \"ndk;27.1.12297006\")",
+      "Bash(npx tsc *)"
     ]
   }
 }

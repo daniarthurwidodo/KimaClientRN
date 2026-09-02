@@ -6,14 +6,14 @@
     "body": "Batas waktu check-in dengan MyJPCC App: 10 menit sebelum ibadah dimulai."
   },
   "features": [
-    { "id": "newsfeed", "label": "Newsfeed", "icon": "📰" },
-    { "id": "event", "label": "Event", "icon": "📅" },
-    { "id": "classes", "label": "Classes", "icon": "💡" },
-    { "id": "parenting", "label": "Parenting", "icon": "🏠" },
-    { "id": "prayer", "label": "Prayer Request", "icon": "🕊️" },
-    { "id": "praise", "label": "Praise Report", "icon": "😄" },
-    { "id": "support", "label": "Support", "icon": "💬" },
-    { "id": "more", "label": "More", "icon": "🔲" }
+    { "id": "newsfeed", "label": "Newsfeed", "icon": "newsfeed" },
+    { "id": "event", "label": "Event", "icon": "event" },
+    { "id": "classes", "label": "Classes", "icon": "classes" },
+    { "id": "parenting", "label": "Parenting", "icon": "parenting" },
+    { "id": "prayer", "label": "Prayer Request", "icon": "prayer" },
+    { "id": "praise", "label": "Praise Report", "icon": "praise" },
+    { "id": "support", "label": "Support", "icon": "support" },
+    { "id": "more", "label": "More", "icon": "more" }
   ],
   "newReleases": [
     { "id": "1", "title": "God's Good", "color": "#7a3b6a" },

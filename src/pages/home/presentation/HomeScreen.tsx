@@ -1,25 +1,37 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { palette, font } from '../../../shared/theme/palette';
+import { View, ScrollView, StyleSheet } from 'react-native';
+import { palette } from '../../../shared/theme/palette';
+import { Header } from '../components/Header';
+import { Banner } from '../components/Banner';
+import { SearchBar } from '../components/SearchBar';
+import { FeatureGrid } from '../components/FeatureGrid';
+import { NewReleases } from '../components/NewReleases';
+import mock from '../data/mock.json';
 
 export function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
+    <View style={styles.root}>
+      <Header name={mock.user.name} unreadCount={mock.user.unreadCount} />
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        <Banner
+          title={mock.banner.title}
+          subtitle={mock.banner.subtitle}
+          body={mock.banner.body}
+        />
+        <SearchBar />
+        <FeatureGrid features={mock.features} />
+        <NewReleases items={mock.newReleases} />
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: palette.midnightViolet,
-  },
-  title: {
-    color: palette.white,
-    fontFamily: font.familyBold,
-    fontSize: 24,
-  },
+  root: { flex: 1, backgroundColor: palette.bgLight },
+  scroll: { flex: 1, backgroundColor: palette.bgLight },
+  scrollContent: { paddingBottom: 24 },
 });
