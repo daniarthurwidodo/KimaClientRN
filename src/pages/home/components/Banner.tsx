@@ -1,8 +1,44 @@
-import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Pressable, ActivityIndicator } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, ImageBackground, Pressable, Animated } from 'react-native';
 import { Speaker224Filled } from '@fluentui/react-native-icons';
 import { palette, font } from '../../../shared/theme/palette';
 import type { RenunganDay } from '../../../shared/services/renunganApi';
+
+const SKELETON_MIN_OPACITY = 0.4;
+const SKELETON_MAX_OPACITY = 1;
+const SKELETON_PULSE_MS = 900;
+
+function BannerSkeleton() {
+  const opacity = useRef(new Animated.Value(SKELETON_MAX_OPACITY)).current;
+
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(opacity, {
+          toValue: SKELETON_MIN_OPACITY,
+          duration: SKELETON_PULSE_MS,
+          useNativeDriver: true,
+        }),
+        Animated.timing(opacity, {
+          toValue: SKELETON_MAX_OPACITY,
+          duration: SKELETON_PULSE_MS,
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [opacity]);
+
+  return (
+    <Animated.View style={[styles.skeletonBox, { opacity }]}>
+      <View style={[styles.skeletonBar, styles.skeletonBarShort]} />
+      <View style={styles.skeletonBar} />
+      <View style={styles.skeletonBar} />
+      <View style={[styles.skeletonBar, styles.skeletonBarMedium]} />
+    </Animated.View>
+  );
+}
 
 type Props = {
   day: RenunganDay | null;
@@ -23,7 +59,7 @@ export function Banner({ day, loading, onPress }: Props) {
           <Speaker224Filled color={palette.white} width={14} height={14} />
         </View>
 
-        {loading && <ActivityIndicator color={palette.white} style={styles.loader} />}
+        {loading && <BannerSkeleton />}
 
         {!loading && day?.hasContent && day.scripture && (
           <View style={styles.scriptureBox}>
@@ -65,7 +101,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  loader: { alignSelf: 'center' },
+  skeletonBox: {
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    padding: 12,
+    borderRadius: 10,
+  },
+  skeletonBar: {
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: 'rgba(255,255,255,0.35)',
+    marginBottom: 8,
+  },
+  skeletonBarShort: { width: '30%', marginBottom: 10 },
+  skeletonBarMedium: { width: '60%', marginBottom: 0 },
   scriptureBox: {
     backgroundColor: 'rgba(0,0,0,0.45)',
     padding: 12,
