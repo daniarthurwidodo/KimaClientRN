@@ -1,30 +1,27 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
+import { useNavigation, type NavigationProp } from '@react-navigation/native';
 import { palette } from '../../../shared/theme/palette';
-import { Header } from '../components/Header';
+import type { HomeStackParamList } from '../../../shared/navigation/types';
 import { Banner } from '../components/Banner';
-import { SearchBar } from '../components/SearchBar';
-import { FeatureGrid } from '../components/FeatureGrid';
-import { NewReleases } from '../components/NewReleases';
-import mock from '../data/mock.json';
+import { useTodayRenungan } from '../business/useTodayRenungan';
 
 export function HomeScreen() {
+  const navigation = useNavigation<NavigationProp<HomeStackParamList>>();
+  const { day, today, loading } = useTodayRenungan();
+
   return (
     <View style={styles.root}>
-      <Header name={mock.user.name} unreadCount={mock.user.unreadCount} />
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
         <Banner
-          title={mock.banner.title}
-          subtitle={mock.banner.subtitle}
-          body={mock.banner.body}
+          day={day}
+          loading={loading}
+          onPress={() => navigation.navigate('RenunganDetail', { date: today })}
         />
-        <SearchBar />
-        <FeatureGrid features={mock.features} />
-        <NewReleases items={mock.newReleases} />
       </ScrollView>
     </View>
   );

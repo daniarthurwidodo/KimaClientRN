@@ -1,9 +1,10 @@
 import React from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabs } from './src/shared/components/BottomTabs';
 import { StubScreen } from './src/shared/components/StubScreen';
-import { HomeScreen } from './src/pages/home/presentation/HomeScreen';
+import { HomeStack } from './src/pages/home/presentation/HomeStack';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -11,15 +12,17 @@ function App() {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <BottomTabs
-        screens={{
-          home: <HomeScreen />,
-          community: <StubScreen label="Community" />,
-          ministry: <StubScreen label="Ministry" />,
-          giving: <StubScreen label="Giving" />,
-          resources: <StubScreen label="Resources" />,
-        }}
-      />
+      <NavigationContainer>
+        <BottomTabs
+          screens={{
+            home: <HomeStack />,
+            community: <StubScreen label="Community" />,
+            ministry: <StubScreen label="Ministry" />,
+            giving: <StubScreen label="Giving" />,
+            resources: <StubScreen label="Resources" />,
+          }}
+        />
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
