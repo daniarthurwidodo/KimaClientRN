@@ -1,7 +1,4 @@
-import { Platform } from 'react-native';
-
-const DEV_HOST = Platform.select({ ios: 'localhost', android: '10.0.2.2', default: 'localhost' });
-const BASE_URL = `http://${DEV_HOST}:3000`;
+import { resolveBaseUrl } from './apiBase';
 
 export type RenunganScripture = {
   ref: string;
@@ -25,7 +22,8 @@ export type RenunganMonth = {
 };
 
 export async function fetchRenunganMonth(month: string): Promise<RenunganMonth> {
-  const url = `${BASE_URL}/api/renungan?month=${encodeURIComponent(month)}`;
+  const baseUrl = await resolveBaseUrl();
+  const url = `${baseUrl}/api/renungan?month=${encodeURIComponent(month)}`;
   const res = await fetch(url, { headers: { Accept: 'application/json' } });
   if (!res.ok) {
     throw new Error(`Renungan fetch failed: HTTP ${res.status} ${res.statusText}`);
