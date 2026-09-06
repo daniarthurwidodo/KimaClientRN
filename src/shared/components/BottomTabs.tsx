@@ -6,16 +6,12 @@ import {
   Home24Filled,
   People24Regular,
   People24Filled,
-  Building24Regular,
-  Building24Filled,
   Gift24Regular,
   Gift24Filled,
-  Library24Regular,
-  Library24Filled,
 } from '@fluentui/react-native-icons';
 import { palette, font } from '../theme/palette';
 
-export type TabKey = 'home' | 'community' | 'ministry' | 'giving' | 'resources';
+export type TabKey = 'home' | 'community' | 'giving';
 
 type IconCmp = React.ComponentType<{ color?: string; width?: number; height?: number }>;
 type Tab = { key: TabKey; label: string; Regular: IconCmp; Filled: IconCmp };
@@ -23,9 +19,7 @@ type Tab = { key: TabKey; label: string; Regular: IconCmp; Filled: IconCmp };
 const TABS: Tab[] = [
   { key: 'home', label: 'Home', Regular: Home24Regular, Filled: Home24Filled },
   { key: 'community', label: 'Community', Regular: People24Regular, Filled: People24Filled },
-  { key: 'ministry', label: 'Ministry', Regular: Building24Regular, Filled: Building24Filled },
   { key: 'giving', label: 'Giving', Regular: Gift24Regular, Filled: Gift24Filled },
-  { key: 'resources', label: 'Resources', Regular: Library24Regular, Filled: Library24Filled },
 ];
 
 type Props = { screens: Record<TabKey, React.ReactNode> };
