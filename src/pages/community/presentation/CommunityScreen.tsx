@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { useNavigation, type NavigationProp } from '@react-navigation/native';
-import { palette } from '../../../shared/theme/palette';
+import { palette } from '../../../shared/theme';
 import { ScreenHeader } from '../../../shared/components/ScreenHeader';
 import type { CommunityStackParamList } from '../../../shared/navigation/types';
 import { CommunityMenuList } from '../components/CommunityMenuList';
@@ -32,7 +32,7 @@ export function CommunityScreen() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: palette.bgLight },
+  root: { flex: 1, backgroundColor: palette.bgSubtle },
   scroll: { flex: 1 },
   scrollContent: { paddingBottom: 24 },
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { palette, font } from '../theme/palette';
+import { palette, text } from '../theme';
 
 export function StubScreen({ label }: { label: string }) {
   return (
@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: palette.midnightViolet,
   },
   title: {
+    ...text.sectionHeader,
     color: palette.mutedText,
-    fontFamily: font.familyMedium,
-    fontSize: 20,
   },
 });

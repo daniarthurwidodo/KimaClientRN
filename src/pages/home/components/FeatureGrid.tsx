@@ -10,7 +10,7 @@ import {
   ChatHelp24Filled,
   Grid24Filled,
 } from '@fluentui/react-native-icons';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, radius, text } from '../../../shared/theme';
 
 const FEATURE_COLUMNS = 4;
 
@@ -74,15 +74,14 @@ const styles = StyleSheet.create({
   iconWrap: {
     width: 56,
     height: 56,
-    borderRadius: 28,
-    backgroundColor: '#f2f2f2',
+    borderRadius: radius.circle,
+    backgroundColor: palette.bgSubtle,
     alignItems: 'center',
     justifyContent: 'center',
   },
   label: {
+    ...text.caption,
     marginTop: 6,
-    fontFamily: font.familyMedium,
-    fontSize: 12,
     color: palette.textPrimary,
   },
 });

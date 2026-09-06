@@ -9,7 +9,7 @@ import {
   Video24Filled,
   ChevronRight24Regular,
 } from '@fluentui/react-native-icons';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, radius, text } from '../../../shared/theme';
 import type { CommunityMenuItem, CommunityMenuKey } from '../business/communityMenu';
 
 type IconCmp = React.ComponentType<{ color?: string; width?: number; height?: number }>;
@@ -61,31 +61,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: palette.white,
-    borderRadius: 14,
+    borderRadius: radius.md,
     paddingVertical: 14,
     paddingHorizontal: 14,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: palette.searchBorder,
+    marginBottom: 8,
   },
   iconWrap: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: radius.circle,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: palette.headerGreen + '33',
   },
   texts: { flex: 1, marginLeft: 12 },
   label: {
+    ...text.cardTitle,
     color: palette.textPrimary,
-    fontFamily: font.familyMedium,
-    fontSize: 15,
   },
   description: {
+    ...text.secondary,
     color: palette.textSecondary,
-    fontFamily: font.family,
-    fontSize: 12,
     marginTop: 2,
   },
 });

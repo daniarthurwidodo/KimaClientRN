@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import YoutubeIframe from 'react-native-youtube-iframe';
-import { palette, font } from '../theme/palette';
+import { palette, radius, text } from '../theme';
 import { extractYoutubeId } from '../utils/youtube';
 
 type Props = {
@@ -55,12 +55,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: palette.midnightViolet,
-    borderRadius: 8,
+    borderRadius: radius.md,
     paddingHorizontal: 16,
   },
   fallbackText: {
-    fontFamily: font.family,
-    fontSize: 13,
+    ...text.secondary,
     color: palette.mutedText,
     textAlign: 'center',
   },

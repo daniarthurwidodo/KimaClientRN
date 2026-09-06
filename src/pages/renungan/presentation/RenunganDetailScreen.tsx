@@ -3,7 +3,7 @@ import { View, Text, ScrollView, ImageBackground, ActivityIndicator, StyleSheet,
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, type RouteProp } from '@react-navigation/native';
 import { ArrowLeft24Regular } from '@fluentui/react-native-icons';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, font, radius, text } from '../../../shared/theme';
 import type { HomeStackParamList } from '../../../shared/navigation/types';
 import { useRenunganMonth } from '../business/useRenunganMonth';
 import { pickDay } from '../business/selectors';
@@ -75,48 +75,42 @@ const styles = StyleSheet.create({
     left: 16,
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: radius.circle,
     backgroundColor: 'rgba(0,0,0,0.35)',
     alignItems: 'center',
     justifyContent: 'center',
   },
   body: { padding: 20 },
-  date: { fontFamily: font.family, fontSize: 12, color: palette.textSecondary, letterSpacing: 1 },
+  date: { ...text.caption, color: palette.textSecondary },
   title: {
-    fontFamily: font.familyBold,
-    fontSize: 24,
+    ...text.screenTitle,
     color: palette.textPrimary,
     marginTop: 8,
-    lineHeight: 30,
   },
   scriptureBox: {
     marginTop: 16,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: radius.md,
     backgroundColor: 'rgba(69,31,85,0.08)',
     borderLeftWidth: 3,
     borderLeftColor: palette.dustyGrape,
   },
   scriptureRef: {
+    ...text.secondary,
     fontFamily: font.familyBold,
-    fontSize: 13,
     color: palette.darkAmethyst,
     marginBottom: 6,
   },
   scriptureText: {
-    fontFamily: font.family,
-    fontSize: 14,
+    ...text.body,
     color: palette.textPrimary,
-    lineHeight: 22,
     fontStyle: 'italic',
   },
   content: {
-    fontFamily: font.family,
-    fontSize: 15,
+    ...text.body,
     color: palette.textPrimary,
     marginTop: 20,
-    lineHeight: 24,
   },
-  error: { fontFamily: font.family, fontSize: 13, color: palette.badgeRed, marginTop: 16 },
-  placeholder: { fontFamily: font.family, fontSize: 14, color: palette.textSecondary, marginTop: 16 },
+  error: { ...text.secondary, color: palette.badgeRed, marginTop: 16 },
+  placeholder: { ...text.body, color: palette.textSecondary, marginTop: 16 },
 });

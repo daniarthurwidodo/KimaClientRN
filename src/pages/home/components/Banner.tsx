@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Pressable, Animated } from 'react-native';
 import { Speaker224Filled } from '@fluentui/react-native-icons';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, radius, text } from '../../../shared/theme';
 import type { RenunganDay } from '../../../shared/services/renunganApi';
 
 const SKELETON_MIN_OPACITY = 0.4;
@@ -97,18 +97,18 @@ const styles = StyleSheet.create({
     backgroundColor: palette.bannerAccent,
     width: 26,
     height: 26,
-    borderRadius: 13,
+    borderRadius: radius.circle,
     alignItems: 'center',
     justifyContent: 'center',
   },
   skeletonBox: {
     backgroundColor: 'rgba(0,0,0,0.45)',
     padding: 12,
-    borderRadius: 10,
+    borderRadius: radius.md,
   },
   skeletonBar: {
     height: 12,
-    borderRadius: 6,
+    borderRadius: radius.sm,
     backgroundColor: 'rgba(255,255,255,0.35)',
     marginBottom: 8,
   },
@@ -117,25 +117,20 @@ const styles = StyleSheet.create({
   scriptureBox: {
     backgroundColor: 'rgba(0,0,0,0.45)',
     padding: 12,
-    borderRadius: 10,
+    borderRadius: radius.md,
   },
   scriptureRef: {
+    ...text.caption,
     color: palette.saffron,
-    fontFamily: font.familyBold,
-    fontSize: 12,
     marginBottom: 4,
-    letterSpacing: 0.5,
   },
   scriptureText: {
+    ...text.secondary,
     color: palette.white,
-    fontFamily: font.family,
-    fontSize: 13,
-    lineHeight: 18,
     fontStyle: 'italic',
   },
   placeholder: {
+    ...text.secondary,
     color: palette.white,
-    fontFamily: font.family,
-    fontSize: 13,
   },
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { Search20Regular } from '@fluentui/react-native-icons';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, radius, text } from '../../../shared/theme';
 
 type Props = { placeholder?: string };
 
@@ -23,19 +23,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginTop: -20,
     height: 44,
-    borderRadius: 22,
-    backgroundColor: palette.searchBg,
-    borderWidth: 1,
-    borderColor: palette.searchBorder,
+    borderRadius: radius.pill,
+    backgroundColor: palette.bgSubtle,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 14,
+    paddingHorizontal: 16,
     gap: 8,
   },
   input: {
+    ...text.secondary,
     flex: 1,
-    fontFamily: font.family,
-    fontSize: 13,
     color: palette.textPrimary,
     padding: 0,
   },

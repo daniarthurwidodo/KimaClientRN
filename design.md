@@ -51,7 +51,11 @@ Spotify uses a small, fixed set of radii rather than per-component values. Match
 | `radius.pill` | `500px` | buttons, chips, filter pills, search field |
 | `radius.circle` | `50%` | artist avatars, profile images, icon-only buttons |
 
+Implemented in `src/shared/theme/radius.ts`, re-exported from `src/shared/theme`:
+
 ```ts
+import { radius } from '../../shared/theme';
+
 export const radius = {
   sm: 4,
   md: 8,
@@ -79,6 +83,10 @@ a geometric sans with a tall x-height, near-zero tracking, and only three weight
 
 The project font is **Rethink Sans** (`RethinkSans-Regular` / `-Medium` / `-Bold`), which is
 the closest open substitute. Keep it as the single family — no second family anywhere.
+
+Implemented as role styles in `src/shared/theme/typography.ts` (`text.screenTitle`,
+`text.sectionHeader`, `text.cardTitle`, `text.body`, `text.secondary`, `text.caption`).
+Spread the role style, then apply color: `{ ...text.cardTitle, color: palette.textPrimary }`.
 
 | Role | Size | Weight | Color |
 |---|---|---|---|

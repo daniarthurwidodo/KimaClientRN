@@ -3,7 +3,7 @@ import { View, Text, ScrollView, ActivityIndicator, StyleSheet, Pressable } from
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, type RouteProp } from '@react-navigation/native';
 import { ArrowLeft24Regular } from '@fluentui/react-native-icons';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, text } from '../../../shared/theme';
 import type { VideosStackParamList } from '../../../shared/navigation/types';
 import { YoutubePlayer } from '../../../shared/components/YoutubePlayer';
 import { useVideos } from '../business/useVideos';
@@ -52,28 +52,22 @@ const styles = StyleSheet.create({
   backBtn: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
   body: { padding: 16, paddingBottom: 32 },
   title: {
-    fontFamily: font.familyBold,
-    fontSize: 18,
+    ...text.sectionHeader,
     color: palette.textPrimary,
     marginTop: 16,
-    lineHeight: 24,
   },
   date: {
-    fontFamily: font.family,
-    fontSize: 12,
+    ...text.caption,
     color: palette.textSecondary,
     marginTop: 4,
   },
   description: {
-    fontFamily: font.family,
-    fontSize: 14,
+    ...text.body,
     color: palette.textPrimary,
     marginTop: 12,
-    lineHeight: 22,
   },
   error: {
-    fontFamily: font.family,
-    fontSize: 14,
+    ...text.body,
     color: palette.badgeRed,
     marginHorizontal: 16,
     marginTop: 16,

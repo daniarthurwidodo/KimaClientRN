@@ -7,6 +7,7 @@ export const palette = {
   white: '#ffffff',
   mutedText: '#c9bcd4',
   bgLight: '#ffffff',
+  bgSubtle: '#f4f3f6',
   headerGreen: '#a8d84a',
   accentGreen: '#5aa02c',
   bannerOrange: '#f26b1f',

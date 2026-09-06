@@ -6,7 +6,7 @@ import {
   Mail24Regular,
   Settings24Regular,
 } from '@fluentui/react-native-icons';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, radius, text } from '../../../shared/theme';
 
 type Props = { name: string; unreadCount: number };
 
@@ -41,9 +41,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   greeting: {
+    ...text.sectionHeader,
     color: palette.white,
-    fontFamily: font.familyBold,
-    fontSize: 20,
   },
   headerIcons: { flexDirection: 'row', alignItems: 'center', gap: 16 },
   badge: {
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
     top: -4,
     right: -6,
     backgroundColor: palette.badgeRed,
-    borderRadius: 8,
+    borderRadius: radius.circle,
     minWidth: 16,
     height: 16,
     alignItems: 'center',
@@ -59,8 +58,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   badgeText: {
+    ...text.caption,
     color: palette.white,
-    fontSize: 10,
-    fontFamily: font.familyBold,
+    letterSpacing: 0,
   },
 });

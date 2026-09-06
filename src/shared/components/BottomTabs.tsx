@@ -9,7 +9,7 @@ import {
   Gift24Regular,
   Gift24Filled,
 } from '@fluentui/react-native-icons';
-import { palette, font } from '../theme/palette';
+import { palette, font, text } from '../theme';
 
 export type TabKey = 'home' | 'community' | 'giving';
 
@@ -66,8 +66,7 @@ const styles = StyleSheet.create({
   },
   tab: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   label: {
-    fontFamily: font.family,
-    fontSize: 11,
+    ...text.caption,
     color: palette.mutedText,
     marginTop: 4,
   },

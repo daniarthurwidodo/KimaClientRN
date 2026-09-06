@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, radius, text } from '../../../shared/theme';
 import type { GivingAccount } from '../business/givingOptions';
 
 type Props = { accounts: GivingAccount[] };
@@ -25,33 +25,27 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginTop: 8,
     backgroundColor: palette.white,
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: palette.searchBorder,
+    borderRadius: radius.md,
     padding: 16,
   },
   title: {
+    ...text.sectionHeader,
     color: palette.textPrimary,
-    fontFamily: font.familyBold,
-    fontSize: 15,
     marginBottom: 12,
   },
   account: { marginBottom: 12 },
   bank: {
+    ...text.caption,
     color: palette.textSecondary,
-    fontFamily: font.familyMedium,
-    fontSize: 12,
   },
   number: {
+    ...text.sectionHeader,
     color: palette.textPrimary,
-    fontFamily: font.familyBold,
-    fontSize: 18,
     marginTop: 2,
   },
   name: {
+    ...text.secondary,
     color: palette.textSecondary,
-    fontFamily: font.family,
-    fontSize: 12,
     marginTop: 2,
   },
 });

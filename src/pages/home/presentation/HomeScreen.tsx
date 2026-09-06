@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { useNavigation, type NavigationProp } from '@react-navigation/native';
-import { palette } from '../../../shared/theme/palette';
+import { palette } from '../../../shared/theme';
 import type { HomeStackParamList } from '../../../shared/navigation/types';
 import { Banner } from '../components/Banner';
 import { useTodayRenungan } from '../business/useTodayRenungan';

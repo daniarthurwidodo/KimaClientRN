@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, ActivityIndicator, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, type NavigationProp } from '@react-navigation/native';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, text } from '../../../shared/theme';
 import type { VideosStackParamList } from '../../../shared/navigation/types';
 import { useVideos } from '../business/useVideos';
 import { VideoCard } from '../components/VideoCard';
@@ -36,12 +36,11 @@ export function VideoListScreen() {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: palette.bgLight, paddingHorizontal: 16 },
   header: {
-    fontFamily: font.familyBold,
-    fontSize: 22,
+    ...text.screenTitle,
     color: palette.textPrimary,
     marginBottom: 12,
   },
   list: { paddingBottom: 32 },
-  error: { fontFamily: font.family, fontSize: 13, color: palette.badgeRed, marginTop: 16 },
-  empty: { fontFamily: font.family, fontSize: 14, color: palette.textSecondary, marginTop: 24 },
+  error: { ...text.secondary, color: palette.badgeRed, marginTop: 16 },
+  empty: { ...text.body, color: palette.textSecondary, marginTop: 24 },
 });

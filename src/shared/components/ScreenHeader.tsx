@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { palette, font } from '../theme/palette';
+import { palette, radius, text } from '../theme';
 
 type Props = { title: string; subtitle?: string };
 
@@ -21,18 +21,16 @@ const styles = StyleSheet.create({
     backgroundColor: palette.darkAmethyst,
     paddingHorizontal: 20,
     paddingBottom: 20,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: radius.lg,
+    borderBottomRightRadius: radius.lg,
   },
   title: {
+    ...text.screenTitle,
     color: palette.white,
-    fontFamily: font.familyBold,
-    fontSize: 24,
   },
   subtitle: {
+    ...text.secondary,
     color: palette.mutedText,
-    fontFamily: font.family,
-    fontSize: 13,
     marginTop: 4,
   },
 });

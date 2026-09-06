@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
-import { palette } from '../../../shared/theme/palette';
+import { palette } from '../../../shared/theme';
 import { ScreenHeader } from '../../../shared/components/ScreenHeader';
 import { GivingFundList } from '../components/GivingFundList';
 import { GivingAccountCard } from '../components/GivingAccountCard';
@@ -31,7 +31,7 @@ export function GivingScreen() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: palette.bgLight },
+  root: { flex: 1, backgroundColor: palette.bgSubtle },
   scroll: { flex: 1 },
   scrollContent: { paddingBottom: 24 },
 });

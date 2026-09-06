@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, font, radius, text } from '../../../shared/theme';
 
 const CARD_WIDTH = 150;
 const CARD_HEIGHT = 190;
@@ -45,26 +45,24 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   title: {
-    fontFamily: font.familyBold,
-    fontSize: 18,
+    ...text.sectionHeader,
     color: palette.textPrimary,
   },
   seeAll: {
-    fontFamily: font.familyBold,
-    fontSize: 13,
+    ...text.secondary,
+    fontFamily: font.familyMedium,
     color: palette.accentGreen,
   },
-  row: { paddingHorizontal: 16, gap: 12 },
+  row: { paddingHorizontal: 16, gap: 8 },
   card: {
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
-    borderRadius: 12,
+    borderRadius: radius.md,
     padding: 12,
     justifyContent: 'flex-end',
   },
   cardTitle: {
+    ...text.sectionHeader,
     color: palette.white,
-    fontFamily: font.familyBold,
-    fontSize: 18,
   },
 });

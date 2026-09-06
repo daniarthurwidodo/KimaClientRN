@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Pressable, StyleSheet } from 'react-native';
 import { PlayCircle24Filled } from '@fluentui/react-native-icons';
-import { palette, font } from '../../../shared/theme/palette';
+import { palette, radius, text } from '../../../shared/theme';
 import type { Video } from '../../../shared/services/videoApi';
 
 type Props = {
@@ -32,7 +32,7 @@ export function VideoCard({ video, onPress }: Props) {
 
 const styles = StyleSheet.create({
   card: { marginBottom: 20 },
-  thumbWrap: { position: 'relative', borderRadius: 10, overflow: 'hidden' },
+  thumbWrap: { position: 'relative', borderRadius: radius.sm, overflow: 'hidden' },
   thumb: { width: '100%', aspectRatio: 16 / 9, backgroundColor: palette.dustyGrape },
   thumbFallback: { backgroundColor: palette.dustyGrape },
   playOverlay: {
@@ -42,15 +42,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.2)',
   },
   title: {
-    fontFamily: font.familyBold,
-    fontSize: 15,
+    ...text.cardTitle,
     color: palette.textPrimary,
     marginTop: 8,
-    lineHeight: 20,
   },
   date: {
-    fontFamily: font.family,
-    fontSize: 12,
+    ...text.caption,
     color: palette.textSecondary,
     marginTop: 2,
   },
