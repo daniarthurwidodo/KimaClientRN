@@ -25,7 +25,8 @@
       "Bash(npm start *)",
       "Bash(watchman watch-del-all *)",
       "Bash(watchman shutdown-server *)",
-      "Bash(echo \"---exit:$?\")"
+      "Bash(echo \"---exit:$?\")",
+      "Bash(claude mcp *)"
     ]
   }
 }
