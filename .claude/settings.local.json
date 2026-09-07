@@ -17,7 +17,15 @@
       "Bash(jenv global *)",
       "Bash(jenv rehash *)",
       "Bash(java -version)",
-      "Bash(~/Library/Android/sdk/emulator/emulator *)"
+      "Bash(~/Library/Android/sdk/emulator/emulator *)",
+      "Bash(~/Library/Android/sdk/platform-tools/adb devices *)",
+      "Bash(curl -s http://localhost:8081/status)",
+      "Bash(lsof -iTCP:8081 -sTCP:LISTEN)",
+      "Bash(~/Library/Android/sdk/platform-tools/adb reverse *)",
+      "Bash(npm start *)",
+      "Bash(watchman watch-del-all *)",
+      "Bash(watchman shutdown-server *)",
+      "Bash(echo \"---exit:$?\")"
     ]
   }
 }
