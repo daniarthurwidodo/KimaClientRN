@@ -1,12 +1,14 @@
 export const radius = {
-  /** artwork, thumbnails, inline images */
+  /** legacy / thumbnails only */
   sm: 4,
-  /** cards, list rows, tiles, sheets, menus, banners */
-  md: 8,
-  /** bottom sheets and modals */
+  /** form fields, media artwork, thumbnails */
+  md: 12,
+  /** cards, list rows, warta/sermon panels */
   lg: 16,
-  /** buttons, chips, filter pills, search field */
+  /** featured hero panels, acrylic banners */
+  xl: 24,
+  /** buttons, chips, nav dock, filter pills */
   pill: 500,
-  /** avatars, profile images, icon-only buttons */
+  /** avatars, icon-only buttons */
   circle: 9999,
 } as const;
